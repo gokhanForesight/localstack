@@ -18,8 +18,9 @@ from localstack.utils.common import (
     load_file,
     new_tmp_file,
     poll_condition,
+    rm_rf,
     run,
-    synchronized, rm_rf,
+    synchronized,
 )
 
 
