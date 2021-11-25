@@ -11,6 +11,7 @@ def runner():
     return CliRunner()
 
 
+@pytest.mark.failing_offline
 def test_list(runner, monkeypatch):
     monkeypatch.setenv("NO_COLOR", "1")
 

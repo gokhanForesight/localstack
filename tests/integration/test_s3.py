@@ -1223,6 +1223,7 @@ class TestS3(unittest.TestCase):
         finally:
             config.HOSTNAME_EXTERNAL = hostname_before
 
+    @pytest.mark.failing_offline
     def test_s3_static_website_hosting(self):
 
         bucket_name = "test-%s" % short_uid()
@@ -1588,6 +1589,7 @@ class TestS3(unittest.TestCase):
 
         self._delete_bucket(bucket_name, keys)
 
+    @pytest.mark.failing_offline
     def test_s3_put_object_notification_with_lambda(self):
         bucket_name = "bucket-%s" % short_uid()
         function_name = "func-%s" % short_uid()
@@ -1916,6 +1918,7 @@ class TestS3(unittest.TestCase):
         )
         self.run_presigned_url_signature_authentication(client, client_v4, bucket_name, url_prefix)
 
+    @pytest.mark.failing_offline
     @patch.object(config, "S3_SKIP_SIGNATURE_VALIDATION", False)
     def test_presigned_url_signature_authentication_virtual_host_addressing(self):
         virtual_endpoint = "{}://{}:{}".format(
@@ -2299,6 +2302,7 @@ class TestS3(unittest.TestCase):
         client.delete_object(Bucket=bucket, Key=object_key)
         client.delete_bucket(Bucket=bucket)
 
+    @pytest.mark.failing_offline
     def test_s3_download_object_with_lambda(self):
         bucket_name = "bucket-%s" % short_uid()
         function_name = "func-%s" % short_uid()
@@ -2346,6 +2350,7 @@ class TestS3(unittest.TestCase):
         # Cleanup
         self._delete_bucket(bucket, key_by_path)
 
+    @pytest.mark.failing_offline
     def test_s3_lambda_integration(self):
         if not use_docker():
             return
