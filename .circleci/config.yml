@@ -47,6 +47,10 @@ jobs:
           command: |
             source .venv/bin/activate
             pytest tests/unit --junitxml=target/reports/unit-tests.xml -o junit_suite_name=unit-tests
+          environment:
+            THUNDRA_AGENT_DEBUG_ENABLE: "True" 
+            THUNDRA_APIKEY: "cc2bf889-c6b1-42cb-9d45-90e239a28b7d"
+            THUNDRA_AGENT_TEST_PROJECT_ID: "bc28ab0f-37eb-41b9-b360-182acf3546f2"
       - store_test_results:
           path: target/reports/
 
