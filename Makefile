@@ -5,7 +5,6 @@ IMAGE_TAG ?= $(shell cat localstack/__init__.py | grep '^__version__ =' | sed "s
 export THUNDRA_AGENT_DEBUG_ENABLE = True 
 export THUNDRA_APIKEY = cc2bf889-c6b1-42cb-9d45-90e239a28b7d
 export THUNDRA_AGENT_TEST_PROJECT_ID = bc28ab0f-37eb-41b9-b360-182acf3546f2
-export THUNDRA_AGENT_APPLICATION_NAME = localstack-local-env
 VENV_BIN ?= python3 -m venv
 VENV_DIR ?= .venv
 PIP_CMD ?= pip3
