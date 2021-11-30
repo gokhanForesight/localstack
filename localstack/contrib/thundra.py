@@ -405,7 +405,6 @@ def _prepare_invocation_for_python_lambda(
 
 class LambdaExecutorPluginThundra(LambdaExecutorPlugin):
     def should_apply(self, context: InvocationContext) -> bool:
-        return False
         # Local executor is not supported yet
         if "local" in config.LAMBDA_EXECUTOR:
             return False
@@ -437,7 +436,6 @@ class LambdaExecutorPluginThundra(LambdaExecutorPlugin):
     def prepare_invocation(
         self, context: InvocationContext
     ) -> Optional[Union[AdditionalInvocationOptions, InvocationResult]]:
-        return None
         if is_java_lambda(context.lambda_function):
             return _prepare_invocation_for_java_lambda(context)
         elif is_nodejs_runtime(context.lambda_function):
